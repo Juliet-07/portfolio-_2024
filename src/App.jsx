@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Me from "./assets/me.png";
+import BG1 from "./assets/BS-5.png";
+import BG2 from "./assets/room.png";
+import BG3 from "./assets/spc-logo.png";
+import BG4 from "./assets/icon.png";
 import BG from "./assets/project-bg.png";
 import { SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 const App = () => {
   const projects = [
     {
-      image: BG,
-      name: "Name of Project",
+      image: BG1,
+      name: "Bryanspaxe",
       description:
-        "From conceptualization to execution, I thrive on the journey of shaping ideas",
-      path: "/",
+        "Simplified Procurement and Professional Installation of Automated Engineering Services.",
+      path: "https://www.bryanspaxe.com/",
     },
     {
-      image: BG,
-      name: "Name of Project",
-      description:
-        "From conceptualization to execution, I thrive on the journey of shaping ideas",
-      path: "/",
+      image: BG2,
+      name: "Welcome Me",
+      description: "House hunting made easy for you in Germany.",
+      path: "https://welcome-me.vercel.app/",
     },
     {
-      image: Me,
-      name: "Name of Project",
-      description:
-        "From conceptualization to execution, I thrive on the journey of shaping ideas",
-      path: "/",
+      image: BG3,
+      name: "SPC Universe",
+      description: "Building a Borderless World for Digital Innovators.",
+      path: "https://www.silverspoonuniverse.com/",
     },
     {
-      image: BG,
-      name: "Name of Project",
+      image: BG4,
+      name: "ABH",
       description:
         "From conceptualization to execution, I thrive on the journey of shaping ideas",
-      path: "/",
+      path: "https://abh-customer.vercel.app/",
     },
   ];
   const experiences = [
@@ -77,6 +79,33 @@ const App = () => {
     { id: 10, name: "Github" },
     { id: 11, name: "Project Management" },
   ];
+  const [completedProjects, setCompletedProjects] = useState(0);
+  const [liveProjects, setLiveProjects] = useState(0);
+  const [happyUsers, setHappyUsers] = useState(0);
+
+  // Function to increment values
+  const incrementValue = (endValue, setValue) => {
+    let startValue = 0;
+    const duration = 2000; // Duration in ms
+    const increment = Math.ceil(endValue / (duration / 50));
+
+    const counter = setInterval(() => {
+      startValue += increment;
+      if (startValue >= endValue) {
+        setValue(endValue);
+        clearInterval(counter);
+      } else {
+        setValue(startValue);
+      }
+    }, 50); // Interval in ms
+  };
+
+  useEffect(() => {
+    incrementValue(20, setCompletedProjects); // 20 Completed Projects
+    incrementValue(20, setLiveProjects); // 20 Live Projects
+    incrementValue(1000, setHappyUsers); // 1000 Happy Users
+  }, []);
+
   return (
     <div className="w-full h-full text-white font-primaryRegular">
       {/* Top Bar */}
@@ -89,7 +118,7 @@ const App = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiLinkedin color="blue" size={20} />
+            <SiLinkedin color=" #0077B5" size={20} />
           </a>
 
           {/* WhatsApp */}
@@ -98,7 +127,7 @@ const App = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiWhatsapp color="green" size={20} />
+            <SiWhatsapp color="#25D366" size={20} />
           </a>
         </div>
       </div>
@@ -149,7 +178,7 @@ const App = () => {
           <div
             className="fixed w-full h-[387px] md:w-[746px] md:h-[666px] bg-cover bg-center z-0"
             style={{ backgroundImage: `url(${Me})`, objectFit: "cover" }}
-          ></div>
+          ></div>20
 
           {/* Scrollable Content */}
           <div className="relative z-10 mt-[400px] md:mt-[700px] space-y-10 overflow-auto">
@@ -233,6 +262,7 @@ const App = () => {
                     {/* Hover Button */}
                     <a
                       href={project.path}
+                      target="_blank"
                       className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <button className="bg-green-600 text-white px-4 py-2 rounded-md">
@@ -265,7 +295,7 @@ const App = () => {
               <div className="w-full flex items-center justify-between">
                 <div>
                   <p className="text-[#039855] text-4xl md:text-6xl font-primaryBold">
-                    20+
+                    {completedProjects}+
                   </p>
                   <p className="text-gray-400 text-sm md:text-xl">
                     Completed Projects
@@ -273,7 +303,7 @@ const App = () => {
                 </div>
                 <div>
                   <p className="text-[#039855] text-4xl md:text-6xl font-primaryBold">
-                    20+
+                    {liveProjects}+
                   </p>
                   <p className="text-gray-400 text-sm md:text-xl">
                     Live Projects
@@ -281,7 +311,7 @@ const App = () => {
                 </div>
                 <div>
                   <p className="text-[#039855] text-4xl md:text-6xl font-primaryBold">
-                    1000+
+                    {happyUsers}+
                   </p>
                   <p className="text-gray-400 text-sm md:text-xl">
                     Happy Users
