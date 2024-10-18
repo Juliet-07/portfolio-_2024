@@ -178,8 +178,8 @@ const App = () => {
           <div
             className="fixed w-full h-[387px] md:w-[746px] md:h-[666px] bg-cover bg-center z-0"
             style={{ backgroundImage: `url(${Me})`, objectFit: "cover" }}
-          ></div>20
-
+          ></div>
+          20
           {/* Scrollable Content */}
           <div className="relative z-10 mt-[400px] md:mt-[700px] space-y-10 overflow-auto">
             {/* <section id="overview" className="bg-red-500">
@@ -230,7 +230,16 @@ const App = () => {
                   </div>
                 ))}
               </div>
-              <p className="py-3">View Full Resume</p>
+              <p className="py-3">
+                <a
+                  href="https://drive.google.com/file/d/1MvYP95aqMQ8UX-xpxSPxmKrRBRCBa8-u/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:underline"
+                >
+                  View Full Resume
+                </a>
+              </p>
             </section>
 
             <section id="project" className="bg-[#101828] p-4 md:p-0">
