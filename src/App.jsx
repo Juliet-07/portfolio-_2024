@@ -5,7 +5,7 @@ import BG2 from "./assets/room.png";
 import BG3 from "./assets/spc-logo.png";
 import BG4 from "./assets/icon.png";
 import BG from "./assets/project-bg.png";
-import { SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { SiLinkedin, SiWhatsapp, SiGithub } from "react-icons/si";
 
 const App = () => {
   const projects = [
@@ -15,25 +15,29 @@ const App = () => {
       description:
         "Simplified Procurement and Professional Installation of Automated Engineering Services.",
       path: "https://www.bryanspaxe.com/",
+      repo: "https://github.com/Juliet-07/bryanspaxe",
     },
     {
       image: BG2,
       name: "Welcome Me",
       description: "House hunting made easy for you in Germany.",
       path: "https://welcome-me.vercel.app/",
+      repo: "https://github.com/Juliet-07/welcome-me",
     },
     {
       image: BG3,
       name: "SPC Universe",
       description: "Building a Borderless World for Digital Innovators.",
       path: "https://www.silverspoonuniverse.com/",
+      repo: "https://github.com/Juliet-07/spc-website",
     },
     {
       image: BG4,
       name: "ABH",
       description:
         "From conceptualization to execution, I thrive on the journey of shaping ideas",
-      path: "https://abh-customer.vercel.app/",
+      path: "https://abhmarkets.com/",
+      repo: "https://github.com/Juliet-07/abh",
     },
   ];
   const experiences = [
@@ -75,9 +79,11 @@ const App = () => {
     { id: 6, name: "React.js" },
     { id: 7, name: "Next.js" },
     { id: 8, name: "Node.js" },
-    { id: 9, name: "Git" },
-    { id: 10, name: "Github" },
-    { id: 11, name: "Project Management" },
+    { id: 9, name: "NestJS" },
+    { id: 10, name: "Databases" },
+    { id: 11, name: "Git" },
+    { id: 12, name: "Github" },
+    { id: 13, name: "Project Management" },
   ];
   const [completedProjects, setCompletedProjects] = useState(0);
   const [liveProjects, setLiveProjects] = useState(0);
@@ -128,6 +134,15 @@ const App = () => {
             rel="noopener noreferrer"
           >
             <SiWhatsapp color="#25D366" size={20} />
+          </a>
+
+          {/* Github */}
+          <a
+            href="https://github.com/Juliet-07" // Replace with your WhatsApp number
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiGithub size={20} />
           </a>
         </div>
       </div>
@@ -269,15 +284,22 @@ const App = () => {
                     </div>
 
                     {/* Hover Button */}
-                    <a
-                      href={project.path}
-                      target="_blank"
-                      className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    >
-                      <button className="bg-green-600 text-white px-4 py-2 rounded-md">
+                    <div className="absolute inset-0 flex justify-center items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <a
+                        href={project.path}
+                        target="_blank"
+                        className="bg-green-600 text-white px-4 py-2 rounded-md"
+                      >
                         Visit site
-                      </button>
-                    </a>
+                      </a>
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        className="bg-blue-600 text-white px-4 py-2 rounded-md"
+                      >
+                        Visit repo
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
