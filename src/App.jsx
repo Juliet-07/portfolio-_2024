@@ -28,7 +28,7 @@ const App = () => {
       image: BG3,
       name: "SPC Universe",
       description: "Building a Borderless World for Digital Innovators.",
-      path: "https://www.silverspoonuniverse.com/",
+      path: "https://spc-website-theta.vercel.app/",
       repo: "https://github.com/Juliet-07/spc-website",
     },
     {
