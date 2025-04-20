@@ -4,11 +4,25 @@ import BG1 from "./assets/BS-5.png";
 import BG2 from "./assets/room.png";
 import BG3 from "./assets/spc-logo.png";
 import BG4 from "./assets/icon.png";
-import BG from "./assets/project-bg.png";
+import Wekraft from "./assets/engagement.svg";
 import { SiLinkedin, SiWhatsapp, SiGithub } from "react-icons/si";
 
 const App = () => {
   const projects = [
+    {
+      image: Wekraft,
+      name: "Wekraft",
+      description: "Simplified Edtech Platform for children",
+      path: "https://www.wekraft.co/",
+      repo: "https://github.com/Juliet-07/wekraft-webapp.git",
+    },
+    {
+      image: BG2,
+      name: "Aleph Biz Solutions",
+      description: "Empower Businesses To Thrive & Scale",
+      path: "https://www.alephbiz.com/",
+      repo: "https://github.com/Juliet-07/aleph-website.git",
+    },
     {
       image: BG1,
       name: "Bryanspaxe",
